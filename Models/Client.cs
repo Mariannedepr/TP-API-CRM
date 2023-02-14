@@ -10,7 +10,7 @@ public class Client{
     public string Comment { get; set; }= null!;
     public int id_user { get; set; }
     
-    public User user { get; set; } = null!;
+    public User utilisateur { get; set; } = null!;
     
     [System.Text.Json.Serialization.JsonIgnore]
     public virtual List<Order> ListOrders { get; } = new List<Order>();

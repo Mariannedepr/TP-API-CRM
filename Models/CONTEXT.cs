@@ -36,7 +36,7 @@ public class CRMContext : DbContext
             //la PK
             entity.HasKey(c => c.ID).HasName("PRIMARY");
             //Le client a 1 user
-            entity.HasOne(c => c.user)
+            entity.HasOne(c => c.utilisateur)
             //et plusieurs orders
             .WithMany(c => c.ListClients)
             .HasForeignKey(d =>d.id_user);

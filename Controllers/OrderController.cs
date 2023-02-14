@@ -18,12 +18,17 @@ public class OrderController : ControllerBase{
     [HttpPost]
     public string Post(Order tmp)
     {
-        //vérif si le client associé existe avec FIND
-        //si le client n'existe pas j'annnule mon post
-
-        context.Orders.Add(tmp);
-        context.SaveChanges();
-        return "order added";
+        Client db = context.Clients.Find(tmp.id_clients);
+        if (db != null)
+        {
+            tmp.bob = db;
+            context.Orders.Add(tmp);
+            context.SaveChanges();
+            System.Console.WriteLine("Commande ajoutée");
+        }
+        
+        return "ID client incorrect ou inexistant";
+  
     }
 
      //READ
