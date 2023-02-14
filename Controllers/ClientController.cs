@@ -23,19 +23,31 @@ public class ClientController : ControllerBase{
         //User Usertmp = context.Users.Find(id); //on cherche un user qui a l'id passé en paramètre
         User db = context.Users.Find(tmp.id_user);
         
-        if (db != null)  //si mon id_user rentré dans mon client n'est pas null
+        // if (db != null)  //si mon id_user rentré dans mon client n'est pas null
+        // {
+        //        //alors mon user stocké dans mon client prend la valeur de mon user de l'id passé en param
+        //     tmp.utilisateur = db;
+        //     context.Clients.Add(tmp); //on ajoute le client à db
+        //     context.SaveChanges();
+        //     System.Console.WriteLine("Client ajouté");
+        // }
+        // else {
+        //     Console.WriteLine("ID user incorrect ou inexistant") ;
+        // }
+        // return "Operation terminée";
+         
+
+        if (db == null)  
         {
-               //alors mon user stocké dans mon client prend la valeur de mon user de l'id passé en param
+            System.Console.WriteLine("ID user incorrect ou inexistant");
+            return "operation failed";
+        }  
             tmp.utilisateur = db;
             context.Clients.Add(tmp); //on ajoute le client à db
             context.SaveChanges();
-            System.Console.WriteLine("Client ajouté");
-        }
-         return "ID user incorrect ou inexistant";
-        //prendre l'id_user de mon tmp et voir s'il existe sur mon context
-        //sil existe les valeurs de mon Tmp.user prennent les valeurs de mon context.user 
-        //sil existe pas je drop la requete  
+            return "Client ajouté";     
     }
+
 
      //READ
         [HttpGet]

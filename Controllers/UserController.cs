@@ -14,9 +14,9 @@ public class UserController : ControllerBase
     {
       // if(ListUser.Count() == 0)
       //   {
-            ListUser.Add(new User("john@example.com", "1234", "John", "Smith", "1234", "ADMIN"));
-            context.SaveChanges();
-        //}
+        //     ListUser.Add(new User("john@example.com", "1234", "John", "Smith", "1234", "ADMIN"));
+        //     context.SaveChanges();
+        // }
     }
 
      //CREATE

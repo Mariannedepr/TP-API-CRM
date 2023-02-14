@@ -14,7 +14,7 @@ public class OrderController : ControllerBase{
         
     }
 
-     //CREATE
+    //CREATE
     [HttpPost]
     public string Post(Order tmp)
     {
@@ -24,11 +24,14 @@ public class OrderController : ControllerBase{
             tmp.bob = db;
             context.Orders.Add(tmp);
             context.SaveChanges();
-            System.Console.WriteLine("Commande ajoutée");
+            Console.WriteLine("Commande ajoutée au client");
         }
-        
-        return "ID client incorrect ou inexistant";
-  
+
+        else {
+            Console.WriteLine("operation failed");
+        }
+
+            return "Operation Post une commande terminée";
     }
 
      //READ
